@@ -2,8 +2,9 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class ProjectileData
+public class MultiplierVisualData
 {
-    [field:SerializeField] public Projectile Prefab { get; private set; }
     [field:SerializeField] public ColorType Type { get; private set; }
+    [field:SerializeField] public Color Color { get; private set; }
+
 }

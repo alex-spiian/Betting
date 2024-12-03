@@ -12,9 +12,9 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     private Transform[] _spawnPoints;
 
-    private readonly Dictionary<ProjectileType, MonoBehaviourPool<Projectile>> _poolsDictionary = new ();
+    private readonly Dictionary<ColorType, MonoBehaviourPool<Projectile>> _poolsDictionary = new ();
 
-    public void Spawn(ProjectileType projectileType)
+    public void Spawn(ColorType projectileType)
     {
         var spawnPoint = GetSpawnPoint();
         var projectilePool = GetProjectilePool(projectileType);
@@ -23,7 +23,7 @@ public class ProjectileSpawner : MonoBehaviour
         projectile.transform.position = spawnPoint.position;
     }
 
-    private Projectile GetProjectilePrefab(ProjectileType projectileType)
+    private Projectile GetProjectilePrefab(ColorType projectileType)
     {
         var requiredProjectile = _projectilesData.FirstOrDefault(projectile => projectile.Type == projectileType);
         if (requiredProjectile == null)
@@ -39,7 +39,7 @@ public class ProjectileSpawner : MonoBehaviour
         return _spawnPoints[Random.Range(0, _spawnPoints.Length)];
     }
     
-    private MonoBehaviourPool<Projectile> GetProjectilePool(ProjectileType projectileType)
+    private MonoBehaviourPool<Projectile> GetProjectilePool(ColorType projectileType)
     {
         if (HasCreatedPool(projectileType))
         {
@@ -59,7 +59,7 @@ public class ProjectileSpawner : MonoBehaviour
         projectilePool.Release(projectile);
     }
 
-    private bool HasCreatedPool(ProjectileType projectileType)
+    private bool HasCreatedPool(ColorType projectileType)
     {
         return _poolsDictionary.ContainsKey(projectileType);
     }

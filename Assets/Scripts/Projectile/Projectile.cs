@@ -4,7 +4,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [field:SerializeField]
-    public ProjectileType Type { get; private set; }
+    public ColorType Type { get; private set; }
     
     private event Action<Projectile> _onProjectileHit;
     
