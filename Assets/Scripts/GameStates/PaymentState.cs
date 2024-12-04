@@ -9,5 +9,11 @@ public class PaymentState : IState
 
     public void OnEnter()
     {
+        ScreensManager.OpenScreen<WarningScreen>();
+    }
+
+    public void OnBalanceToppedUp()
+    {
+        ScreensManager.CloseScreen<WarningScreen>();
     }
 }

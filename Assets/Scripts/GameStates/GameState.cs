@@ -10,5 +10,6 @@ public class GameState : IState
 
     public void OnEnter()
     {
+        ScreensManager.OpenScreen<MainScreen>();
     }
 }
