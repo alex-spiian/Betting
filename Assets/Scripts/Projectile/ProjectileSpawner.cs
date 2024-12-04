@@ -13,8 +13,20 @@ public class ProjectileSpawner : MonoBehaviour
     private Transform[] _spawnPoints;
 
     private readonly Dictionary<ColorType, MonoBehaviourPool<Projectile>> _poolsDictionary = new ();
+    private IInputHandler _inputHandler;
 
-    public void Spawn(ColorType projectileType)
+    public void Initialize(IInputHandler inputHandler)
+    {
+        _inputHandler = inputHandler;
+        _inputHandler.ProjectileSpawning += Spawn;
+    }
+
+    private void OnDestroy()
+    {
+        _inputHandler.ProjectileSpawning -= Spawn;
+    }
+
+    private void Spawn(ColorType projectileType)
     {
         var spawnPoint = GetSpawnPoint();
         var projectilePool = GetProjectilePool(projectileType);

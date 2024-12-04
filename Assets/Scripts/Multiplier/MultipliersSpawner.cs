@@ -9,13 +9,7 @@ public class MultipliersSpawner : MonoBehaviour
     [SerializeField] private MultiplierVisualConfig multipliersVisualConfig;
     [SerializeField] private Multiplier multiplierPrefab;
     [SerializeField] private float _spawnInterval;
-
     private readonly List<Multiplier> _multipliers = new();
-
-    private void Start()
-    {
-        Generate();
-    }
 
     public void Generate()
     {
