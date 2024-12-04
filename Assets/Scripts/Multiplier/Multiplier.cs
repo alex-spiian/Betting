@@ -1,32 +1,26 @@
-using System;
 using TMPro;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class Multiplier : MonoBehaviour
 {
-    public event Action Score;
+    public ColorType Type { get; private set; }
+    public float Value { get; private set; }
 
-    [SerializeField]
-    private SpriteRenderer _spriteRenderer;
-    
-    [SerializeField]
-    private TextMeshPro _multiplierLabel;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private TextMeshPro _multiplierLabel;
 
-    private float _multiplier;
-    
-    public void Initialize(float multiplier, Color color)
+    public void Initialize(ColorType type, float multiplier, Color color)
     {
-        _multiplier = multiplier;
-        _multiplierLabel.text = _multiplier.ToString();
+        Type = type;
+        Value = multiplier;
+        
+        _multiplierLabel.text = Value.ToString();
         _spriteRenderer.color = color;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    public void ShowAnimation()
     {
-        if (collider.TryGetComponent<Projectile>(out var projectile))
-        {
-            Score?.Invoke();
-            projectile.Hide();
-        }
+        Debug.Log($"Animation of {Type} {Value}");
     }
 }
