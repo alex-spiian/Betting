@@ -7,6 +7,8 @@ namespace Core
         private readonly IInputHandler _inputHandler;
         private readonly ProjectileSpawner _projectileSpawner;
 
+        private StateMachine _gameStateMachine;
+
         public BootstrapEntryPoint(
             ProjectileSpawner projectileSpawner, 
             MultipliersSpawner multipliersSpawner,
@@ -19,8 +21,21 @@ namespace Core
 
         public void Initialize()
         {
+            CreateGameStateMachine();
+            
             _projectileSpawner.Initialize(_inputHandler);
             _multipliersSpawner.Generate();
+        }
+
+        private void CreateGameStateMachine()
+        {
+            _gameStateMachine = new StateMachine(
+                new GameState(),
+                new PaymentState()
+            );
+            
+            _gameStateMachine.Initialize();
+            _gameStateMachine.Enter<GameState>();
         }
     }
 }
