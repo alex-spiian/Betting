@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 8282726235229165848}
   _multiplierLabel: {fileID: 3554314355402615671}
+  _scaleMultiplier: 1.2
+  _animationDuration: 0.4
 --- !u!1 &3517062128465638662
 GameObject:
   m_ObjectHideFlags: 0

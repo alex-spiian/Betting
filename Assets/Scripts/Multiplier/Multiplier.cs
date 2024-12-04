@@ -1,5 +1,5 @@
+using DG.Tweening;
 using TMPro;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class Multiplier : MonoBehaviour
@@ -9,6 +9,10 @@ public class Multiplier : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshPro _multiplierLabel;
+    
+    [SerializeField] private float _scaleMultiplier;
+    [SerializeField] private float _animationDuration;
+    private Sequence _sequence;
 
     public void Initialize(ColorType type, float multiplier, Color color)
     {
@@ -21,6 +25,15 @@ public class Multiplier : MonoBehaviour
 
     public void ShowAnimation()
     {
-        Debug.Log($"Animation of {Type} {Value}");
+        _sequence = DOTween.Sequence();
+        _sequence.Append(transform.DOScale(Vector3.one * _scaleMultiplier, _animationDuration / 2));
+        _sequence.Append(transform.DOScale(Vector3.one, _animationDuration / 2));
+        _sequence.Play();
+    }
+
+    private void OnDisable()
+    {
+        _sequence.Kill();
+        transform.DOKill();
     }
 }
