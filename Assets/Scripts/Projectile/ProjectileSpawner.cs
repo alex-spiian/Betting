@@ -23,9 +23,9 @@ public class ProjectileSpawner : MonoBehaviour
         projectile.transform.position = spawnPoint.position;
     }
 
-    private Projectile GetProjectilePrefab(ColorType projectileType)
+    private Projectile GetProjectilePrefab(ColorType type)
     {
-        var requiredProjectile = _projectilesData.FirstOrDefault(projectile => projectile.Type == projectileType);
+        var requiredProjectile = _projectilesData.FirstOrDefault(projectile => projectile.Type == type);
         if (requiredProjectile == null)
         {
             Debug.LogError("Required Projectile is null. Provide Projectile Data");
@@ -39,17 +39,17 @@ public class ProjectileSpawner : MonoBehaviour
         return _spawnPoints[Random.Range(0, _spawnPoints.Length)];
     }
     
-    private MonoBehaviourPool<Projectile> GetProjectilePool(ColorType projectileType)
+    private MonoBehaviourPool<Projectile> GetProjectilePool(ColorType type)
     {
-        if (HasCreatedPool(projectileType))
+        if (HasCreatedPool(type))
         {
-            return _poolsDictionary[projectileType];
+            return _poolsDictionary[type];
         }
 
-        var projectilePrefab = GetProjectilePrefab(projectileType);
+        var projectilePrefab = GetProjectilePrefab(type);
         var projectilePool = new MonoBehaviourPool<Projectile>(projectilePrefab, transform);
         
-        _poolsDictionary.Add(projectileType, projectilePool);
+        _poolsDictionary.Add(type, projectilePool);
         return projectilePool;
     }
 
@@ -59,8 +59,8 @@ public class ProjectileSpawner : MonoBehaviour
         projectilePool.Release(projectile);
     }
 
-    private bool HasCreatedPool(ColorType projectileType)
+    private bool HasCreatedPool(ColorType type)
     {
-        return _poolsDictionary.ContainsKey(projectileType);
+        return _poolsDictionary.ContainsKey(type);
     }
 }
