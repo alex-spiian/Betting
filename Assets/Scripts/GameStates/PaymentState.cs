@@ -30,7 +30,6 @@ public class PaymentState : IPayLoadedState<BettingSystem>, IDisposable
     public void OnEnter(BettingSystem bettingSystem)
     {
         _bettingSystem = bettingSystem;
-        ScreensManager.OpenScreen<WarningScreen>();
     }
 
     private void OnBalanceToppedUp(int amount)

@@ -27,9 +27,9 @@ public class BettingState : IState, IDisposable
         _bettingSystem = new BettingSystem(_playerModel, _inputHandler);
 
         _inputHandler.BetAmountChanged += OnBetChanged;
+        _inputHandler.PaymentScreen += OnPaymentState;
         _playerModel.Wallet.MoneyChanged += OnMoneyChanged;
         _subscriptions.Add(Router.Default.Subscribe<GotTargetEvent>(OnGotTarget));
-        _subscriptions.Add(Router.Default.Subscribe<NotEnoughMoneyEvent>(OnNotEnoughMoney));
     }
     
     public void Initialize(StateMachine stateMachine)
@@ -47,6 +47,7 @@ public class BettingState : IState, IDisposable
     {
         _inputHandler.BetAmountChanged -= OnBetChanged;
         _playerModel.Wallet.MoneyChanged -= OnMoneyChanged;
+        _inputHandler.PaymentScreen -= OnPaymentState;
         _subscriptions?.Dispose();
     }
 
@@ -55,7 +56,8 @@ public class BettingState : IState, IDisposable
         _mainScreen.RefreshBetAmount(amount);
         if (!_playerModel.Wallet.HasEnoughMoney(amount))
         {
-            _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
+            SetPaymentState();
+            ScreensManager.OpenScreen<WarningScreen>();
         }
     }
 
@@ -70,21 +72,28 @@ public class BettingState : IState, IDisposable
         _playerModel.Wallet.AddFunds(eventData.Multiplier, eventData.CurrentBet);
     }
 
-    private void OnNotEnoughMoney(NotEnoughMoneyEvent eventData, PublishContext publishContext)
-    {
-        _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
-    }
-
     private void ValidateState()
     {
         if (!_bettingSystem.CanBet())
         {
-            _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
+            SetPaymentState();
+            ScreensManager.OpenScreen<WarningScreen>();
         }
 
         else
         {
             ScreensManager.CloseAllScreens();
         }
+    }
+
+    private void OnPaymentState()
+    {
+        SetPaymentState();
+        ScreensManager.OpenScreen<PaymentScreen>();
+    }
+
+    private void SetPaymentState()
+    {
+        _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
     }
 }

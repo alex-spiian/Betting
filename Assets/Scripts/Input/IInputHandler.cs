@@ -6,6 +6,7 @@ public interface IInputHandler
     public event Action<ColorType> BetPlacing;
     public event Action<float> BetAmountChanged;
     public event Action<int> BalanceToppedUp;
+    public event Action PaymentScreen;
 
     public void Initialize();
 

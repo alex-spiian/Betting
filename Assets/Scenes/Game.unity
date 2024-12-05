@@ -141,6 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &416097530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6631599314586515775, guid: 983d6b5f462504546a359ff508bc12d3, type: 3}
+  m_PrefabInstance: {fileID: 8731492962008805513}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &569798986 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
@@ -684,6 +695,22 @@ PrefabInstance:
       propertyPath: _topUpButton
       value: 
       objectReference: {fileID: 413613440}
+    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
+      propertyPath: _topUpScreenButton
+      value: 
+      objectReference: {fileID: 416097530}
+    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
+      propertyPath: _topUpButtons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
+      propertyPath: '_topUpButtons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 413613440}
+    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
+      propertyPath: '_topUpButtons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 416097530}
     - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
       propertyPath: _betButtons.Array.data[0].<Button>k__BackingField
       value: 
