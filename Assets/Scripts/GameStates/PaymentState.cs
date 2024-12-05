@@ -40,7 +40,13 @@ public class PaymentState : IPayLoadedState<BettingSystem>, IDisposable
 
         if (isSuccessful)
         {
-            _stateMachine.Enter<BettingState>();
+            SetBettingState();
         }
+    }
+    
+    private void SetBettingState()
+    {
+        ScreensManager.CloseScreen<WarningScreen>();
+        _stateMachine.Enter<BettingState>();
     }
 }

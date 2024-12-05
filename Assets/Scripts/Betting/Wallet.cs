@@ -4,14 +4,14 @@ public class Wallet
 {
     public Action<float> MoneyChanged;
 
-    private float _money;
+    public float Money { get; private set; }
 
     public bool TryDeduct(float amount)
     {
         if (HasEnoughMoney(amount) && amount > 0)
         {
-            _money -= amount;
-            MoneyChanged?.Invoke(_money);
+            Money -= amount;
+            MoneyChanged?.Invoke(Money);
             return true;
         }
         return false;
@@ -19,7 +19,7 @@ public class Wallet
 
     public bool HasEnoughMoney(float amount)
     {
-        return _money >= amount;
+        return Money >= amount;
     }
 
     public void AddFunds(float multiplier, float currentBet)
@@ -27,8 +27,8 @@ public class Wallet
         var amount = currentBet * multiplier;
         if (amount > 0)
         {
-            _money += amount;
-            MoneyChanged?.Invoke(_money);
+            Money += amount;
+            MoneyChanged?.Invoke(Money);
         }
     }
     
@@ -36,8 +36,8 @@ public class Wallet
     {
         if (amount > 0)
         {
-            _money += amount;
-            MoneyChanged?.Invoke(_money);
+            Money += amount;
+            MoneyChanged?.Invoke(Money);
         }
     }
 }

@@ -27,6 +27,11 @@ public class BettingSystem
         return false;
     }
 
+    public bool CanBet()
+    {
+        return _playerModel.Wallet.Money >= _currentBet;
+    }
+
     private void OnBetChanged(float amount)
     {
         if (amount <= 0)

@@ -62,6 +62,7 @@ public class BettingState : IState, IDisposable
     private void OnMoneyChanged(float amount)
     {
         _mainScreen.RefreshMoneyAmount(amount);
+        ValidateState();
     }
 
     private void OnGotTarget(GotTargetEvent eventData, PublishContext publishContext)
@@ -72,5 +73,18 @@ public class BettingState : IState, IDisposable
     private void OnNotEnoughMoney(NotEnoughMoneyEvent eventData, PublishContext publishContext)
     {
         _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
+    }
+
+    private void ValidateState()
+    {
+        if (!_bettingSystem.CanBet())
+        {
+            _stateMachine.Enter<PaymentState, BettingSystem>(_bettingSystem);
+        }
+
+        else
+        {
+            ScreensManager.CloseAllScreens();
+        }
     }
 }
