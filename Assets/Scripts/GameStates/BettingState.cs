@@ -78,12 +78,10 @@ public class BettingState : IState, IDisposable
         {
             SetPaymentState();
             ScreensManager.OpenScreen<WarningScreen>();
+            return;
         }
-
-        else
-        {
-            ScreensManager.CloseAllScreens();
-        }
+        
+        ScreensManager.CloseScreen<WarningScreen>();
     }
 
     private void OnPaymentState()
