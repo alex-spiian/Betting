@@ -2,19 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using VitalRouter;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class MultiplierBundle : MonoBehaviour
 {
     public event Action<float> Score;
     
-    private ColorType _type;
     private readonly List<Multiplier> _multipliers = new();
-
-    public void Initialize(ColorType type)
-    {
-        _type = type;
-    }
+    
 
     public void Add(Multiplier multiplier)
     {
@@ -32,6 +28,7 @@ public class MultiplierBundle : MonoBehaviour
                 Score?.Invoke(requiredMultiplier.Value);
                 projectile.Hide();
                 requiredMultiplier.ShowAnimation();
+                Router.Default.PublishAsync(new GotTargetEvent(requiredMultiplier.Type, requiredMultiplier.Value, projectile.CurrentBet));
             }
         }
     }

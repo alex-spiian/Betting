@@ -1,20 +1,30 @@
-using UnityEngine;
+using VitalRouter;
 
 public class BettingSystem
 {
-    public PlayerModel PlayerModel { get; private set; }
-
     private float _currentBet;
     private float _betStep;
+    private readonly PlayerModel _playerModel;
     private readonly IInputHandler _inputHandler;
 
     public BettingSystem(PlayerModel playerModel, IInputHandler inputHandler)
     {
-        PlayerModel = playerModel;
+        _playerModel = playerModel;
         _inputHandler = inputHandler;
         
         _inputHandler.BetAmountChanged += OnBetChanged;
         _inputHandler.BetPlacing += PlaceBet;
+    }
+
+    public bool TryValidateRecharging(int amount)
+    {
+        if (amount > 0)
+        {
+            _playerModel.Wallet.AddFunds(amount);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnBetChanged(float amount)
@@ -24,42 +34,16 @@ public class BettingSystem
             
         _currentBet = amount;
     }
-
-    private void OnIncreaseBet()
-    {
-        IncreaseBet(_betStep);
-    }
-
-    private void OnDecreaseBet()
-    {
-        DecreaseBet(_betStep);
-    }
-
-    private void IncreaseBet(float amount)
-    {
-        if (amount <= 0)
-            return;
-        
-        _currentBet += amount;
-    }
-
-    private void DecreaseBet(float amount)
-    {
-        if (amount <= 0 || _currentBet - amount <= 0)
-            return;
-        
-        _currentBet -= amount;
-    }
+    
 
     private void PlaceBet(ColorType type)
     {
-        if (PlayerModel.Wallet.TryDeduct(_currentBet))
+        if (_playerModel.Wallet.TryDeduct(_currentBet))
         {
             _inputHandler.OnBetValidated(type, _currentBet);
-            Debug.Log($"BEt {_currentBet}");
             return;
         }
-        
-        Debug.Log("Not enough balance or invalid bet.");
+
+        Router.Default.PublishAsync(new NotEnoughMoneyEvent());
     }
 }

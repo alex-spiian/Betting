@@ -10,6 +10,7 @@ public class ScreensRegister : MonoBehaviour
     {
         AddScreen<MainScreen>(true, true);
         AddScreen<WarningScreen>();
+        AddScreen<PaymentScreen>();
     }
 
     public Dictionary<Type, UIScreenSettings> GetScreenRegistry()

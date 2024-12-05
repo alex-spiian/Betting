@@ -45,7 +45,6 @@ public class MultipliersSpawner : MonoBehaviour
         multiplier.Initialize(type, value, color);
         _multipliers.Add(multiplier);
         
-        multiplierBundle.Initialize(type);
         multiplierBundle.Add(multiplier);
 
         spawnPosition.x += _spawnInterval;

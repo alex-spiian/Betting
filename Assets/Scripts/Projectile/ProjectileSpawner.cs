@@ -18,20 +18,20 @@ public class ProjectileSpawner : MonoBehaviour
     public void Initialize(IInputHandler inputHandler)
     {
         _inputHandler = inputHandler;
-        _inputHandler.ProjectileSpawning += Spawn;
+        _inputHandler.BetValidated += Spawn;
     }
 
     private void OnDestroy()
     {
-        _inputHandler.ProjectileSpawning -= Spawn;
+        _inputHandler.BetValidated -= Spawn;
     }
 
-    private void Spawn(ColorType projectileType)
+    private void Spawn(ColorType projectileType, float currentBet)
     {
         var spawnPoint = GetSpawnPoint();
         var projectilePool = GetProjectilePool(projectileType);
         var projectile = projectilePool.Take();
-        projectile.Initialize(OnProjectileHit);
+        projectile.Initialize(OnProjectileHit, currentBet);
         projectile.transform.position = spawnPoint.position;
     }
 
