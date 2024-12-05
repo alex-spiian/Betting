@@ -1083,6 +1083,7 @@ RectTransform:
   m_Children:
   - {fileID: 8397098311325678212}
   - {fileID: 5811026005580086339}
+  - {fileID: 9056109448835420405}
   m_Father: {fileID: 1741000410309358290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1104,7 +1105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentBetLabel: {fileID: 1288515097684286030}
   _currentMoneyLabel: {fileID: 2740374074306221203}
+  _rewardLabelsContainer: {fileID: 9056109448835420405}
   _topUpButton: {fileID: 6631599314586515775}
+  _rewardLabelPrefab: {fileID: 4232965267508441555, guid: 2ad0ab5d48eda443dbfdf2d710848149, type: 3}
 --- !u!223 &1820809938680777280
 Canvas:
   m_ObjectHideFlags: 0
@@ -4351,6 +4354,68 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7388852174253228122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9056109448835420405}
+  - component: {fileID: 2669530999958723961}
+  m_Layer: 5
+  m_Name: RewardNotifiicationsWindow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9056109448835420405
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388852174253228122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4528188798524038142}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -161.65405, y: -605.11646}
+  m_SizeDelta: {x: 323.3079, y: 640.0874}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2669530999958723961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388852174253228122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 35
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_Spacing: 11.13
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &7620650343893579382
 GameObject:
   m_ObjectHideFlags: 0
