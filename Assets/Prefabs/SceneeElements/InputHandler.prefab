@@ -54,3 +54,5 @@ MonoBehaviour:
     <Button>k__BackingField: {fileID: 0}
   _inputField: {fileID: 0}
   _topUpButton: {fileID: 0}
+  _topUpScreenButton: {fileID: 0}
+  _inputInterval: 1

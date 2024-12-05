@@ -700,18 +700,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 416097530}
     - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
-      propertyPath: _topUpButtons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
-      propertyPath: '_topUpButtons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 413613440}
-    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
-      propertyPath: '_topUpButtons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 416097530}
-    - target: {fileID: 517400392905704352, guid: c528884a40e614a11ad55001166eda59, type: 3}
       propertyPath: _betButtons.Array.data[0].<Button>k__BackingField
       value: 
       objectReference: {fileID: 2325790293457373173}

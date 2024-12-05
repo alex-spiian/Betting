@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class InputHandler : MonoBehaviour, IInputHandler
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private Button _topUpButton;
     [SerializeField] private Button _topUpScreenButton;
+    [SerializeField] private float _inputInterval = 1f;
     
     public void Initialize()
     {
@@ -30,12 +32,16 @@ public class InputHandler : MonoBehaviour, IInputHandler
 
     public void OnBetValidated(ColorType type, float currentBet)
     {
+        SetInputState(true);
         BetValidated?.Invoke(type, currentBet);
     }
     
-    private void OnBetPlacing(ColorType colorType)
+    private async void OnBetPlacing(ColorType colorType)
     {
         BetPlacing?.Invoke(colorType);
+        SetInputState(false);
+        await UniTask.WaitForSeconds(_inputInterval);
+        SetInputState(true);
     }
     
     private void OnDropdownValueChanged(int index)
@@ -84,6 +90,14 @@ public class InputHandler : MonoBehaviour, IInputHandler
         foreach (var buttonData in _betButtons)
         {
             buttonData.Button.onClick.RemoveListener(() => OnBetPlacing(buttonData.Type));
+        }
+    }
+
+    private void SetInputState(bool isActive)
+    {
+        foreach (var betButtonData in _betButtons)
+        {
+            betButtonData.Button.interactable = isActive;
         }
     }
 }
