@@ -5,11 +5,17 @@ using UnityEngine;
 public class MultipliersSpawner : MonoBehaviour
 {
     [SerializeField] private MultiplierData[] _multipliersData;
-    [SerializeField] private MultiplierBundle[] _multiplierBundles;
     [SerializeField] private MultiplierVisualConfig multipliersVisualConfig;
     [SerializeField] private Multiplier multiplierPrefab;
     [SerializeField] private float _spawnInterval;
+    
     private readonly List<Multiplier> _multipliers = new();
+    private MultiplierBundle[] _multiplierBundles;
+
+    public void Initialize(MultiplierBundle[] multiplierBundles)
+    {
+        _multiplierBundles = multiplierBundles;
+    }
 
     public void Generate()
     {

@@ -17,7 +17,6 @@ public class BettingState : IState, IDisposable
     [Inject]
     public void Construct(PlayerModel playerModel,
         PlayerInitialConfig playerInitialConfig,
-        MultipliersSpawner multipliersSpawner,
         IInputHandler inputHandler,
         MainScreen mainScreen)
     {
@@ -25,7 +24,6 @@ public class BettingState : IState, IDisposable
         _playerModel = playerModel;
         _inputHandler = inputHandler;
         _mainScreen = mainScreen;
-        _multipliersSpawner = multipliersSpawner;
         _bettingSystem = new BettingSystem(_playerModel, _inputHandler);
 
         _inputHandler.BetAmountChanged += OnBetChanged;
@@ -38,7 +36,6 @@ public class BettingState : IState, IDisposable
     {
         _stateMachine = stateMachine;
         _playerModel.Initialize(_playerInitialConfig.Money);
-        _multipliersSpawner.Generate();
     }
     
     public void OnEnter()

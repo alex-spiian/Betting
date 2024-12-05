@@ -6,7 +6,6 @@ using UnityEngine;
 public class ShapeSpawner : MonoBehaviour
 {
     [SerializeField] private Shape[] _shapes;
-    [SerializeField] private Transform _spawnPoint;
 
     private Shape _currentShape;
     private ShapeType _currentShapeType;
@@ -23,6 +22,11 @@ public class ShapeSpawner : MonoBehaviour
             var pool = GetPool(shapeType);
             _currentShape = pool.Take();
         }
+    }
+
+    public MultiplierBundle[] GetMultiplierBundles()
+    {
+        return _currentShape.MultiplierBundles;
     }
 
     private void Reset()

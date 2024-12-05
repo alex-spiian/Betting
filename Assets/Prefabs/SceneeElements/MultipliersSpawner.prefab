@@ -361,16 +361,6 @@ MonoBehaviour:
     - 0.9
     - 2
     - 50
-  _multiplierBundles:
-  - {fileID: 82602600425712123}
-  - {fileID: 1610039222496013881}
-  - {fileID: 5749775419620811812}
-  - {fileID: 4325269488912281150}
-  - {fileID: 8374694134405601411}
-  - {fileID: 5157297902868561103}
-  - {fileID: 8072893771176475696}
-  - {fileID: 891870964896406385}
-  - {fileID: 6589467798715031648}
   multipliersVisualConfig: {fileID: 11400000, guid: b38c0d2f718ea4e289790249c1886570, type: 2}
   multiplierPrefab: {fileID: 6461710339423011605, guid: 4a168cb3eb1ac4f4a866ed8ca82ff86d, type: 3}
   _spawnInterval: 0.8
@@ -693,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5786413463328525984
 Transform:
   m_ObjectHideFlags: 0
