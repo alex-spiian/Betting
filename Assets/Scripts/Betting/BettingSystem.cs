@@ -46,9 +46,6 @@ public class BettingSystem
         if (_playerModel.Wallet.TryDeduct(_currentBet))
         {
             _inputHandler.OnBetValidated(type, _currentBet);
-            return;
         }
-
-        Router.Default.PublishAsync(new NotEnoughMoneyEvent());
     }
 }

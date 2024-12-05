@@ -1,6 +1,6 @@
 public class PlayerModel
 {
-    public Wallet Wallet { get; private set; }
+    public Wallet Wallet { get; }
 
     public PlayerModel()
     {

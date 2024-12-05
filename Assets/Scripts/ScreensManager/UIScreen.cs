@@ -7,8 +7,6 @@ public abstract class UIScreen : MonoBehaviour
     public event Action<string> Opened;
     private string _guid;
 
-    public abstract void Tick();
-
     public void Initialize(string guid)
     {
         _guid = guid;

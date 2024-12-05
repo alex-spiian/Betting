@@ -8,11 +8,7 @@ public class PaymentScreen : UIScreen
     
     [SerializeField] private TextMeshProUGUI _messageLabel;
     [SerializeField] private float _messageAnimationDuretion = 3;
-
-    public override void Tick()
-    {
-        ResetLabel(_messageLabel);
-    }
+    
 
     public void OnPaymentValidated(bool isSuccessful)
     {

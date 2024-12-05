@@ -6,10 +6,6 @@ public class WarningScreen : UIScreen
 {
     [SerializeField] private Button _topUpButton;
     
-    public override void Tick()
-    {
-        _topUpButton.enabled = true;
-    }
 
     private void Awake()
     {

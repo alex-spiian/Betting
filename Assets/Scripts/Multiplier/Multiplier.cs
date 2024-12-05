@@ -9,7 +9,6 @@ public class Multiplier : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshPro _multiplierLabel;
-    
     [SerializeField] private float _scaleMultiplier;
     [SerializeField] private float _animationDuration;
     private Sequence _sequence;

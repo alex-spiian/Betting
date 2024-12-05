@@ -6,11 +6,8 @@ using Random = UnityEngine.Random;
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private ProjectileData[] _projectilesData;
-    
-    [SerializeField]
-    private Transform[] _spawnPoints;
+    [SerializeField] private ProjectileData[] _projectilesData;
+    [SerializeField] private Transform[] _spawnPoints;
 
     private readonly Dictionary<ColorType, MonoBehaviourPool<Projectile>> _poolsDictionary = new ();
     private IInputHandler _inputHandler;

@@ -7,11 +7,7 @@ public class MainScreen : UIScreen
     [SerializeField] private TextMeshProUGUI _currentBetLabel;
     [SerializeField] private TextMeshProUGUI _currentMoneyLabel;
     [SerializeField] private Button _topUpButton;
-
-    public override void Tick()
-    {
-    }
-
+    
     private void Awake()
     {
         _topUpButton.onClick.AddListener(OnTopUp);

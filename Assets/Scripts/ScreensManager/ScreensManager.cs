@@ -30,7 +30,6 @@ using UnityEngine;
                     Debug.Log($"{keyValuePair.Value.Guid} screen added to the stack.");
                     _screenStack.Push(keyValuePair.Value);
                     keyValuePair.Value.Screen.Open();
-                    keyValuePair.Value.Screen.Tick();
                     continue;
                 }
 
@@ -54,7 +53,6 @@ using UnityEngine;
             ExecuteOnScreen<UIScreenT>(screenSettings =>
             {
                 screenSettings.Screen.Open();
-                screenSettings.Screen.Tick();
                 if (!_screenStack.Contains(screenSettings))
                 {
                     Debug.Log($"{screenSettings.Guid} screen added to the stack.");
@@ -92,7 +90,6 @@ using UnityEngine;
 
                 var previousScreenSettings = _screenStack.Peek();
                 previousScreenSettings.Screen.Open();
-                previousScreenSettings.Screen.Tick();
             }
             else
             {
@@ -151,7 +148,6 @@ using UnityEngine;
 
             _screenStack.Push(screenSettings);
             screenSettings.Screen.Open();
-            screenSettings.Screen.Tick();
             Debug.Log($"Screen {guid} added to the stack and opened.");
         }
 
