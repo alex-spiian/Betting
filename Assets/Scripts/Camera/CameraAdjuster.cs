@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraAdjuster : MonoBehaviour
 {
     [SerializeField]
-    private BoxCollider2D _level;
+    private BoxCollider2D _gameBorder;
     
     private Camera _mainCamera;
 
@@ -15,7 +15,7 @@ public class CameraAdjuster : MonoBehaviour
 
     private void AdjustCameraSizeToFitLevel()
     {
-        var levelBounds = _level.bounds;
+        var levelBounds = _gameBorder.bounds;
 
         var levelHeight = levelBounds.size.y;
         var levelWidth = levelBounds.size.x;

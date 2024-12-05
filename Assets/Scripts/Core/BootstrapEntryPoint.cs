@@ -9,13 +9,16 @@ namespace Core
 
         private StateMachine _gameStateMachine;
         private BettingSystem _bettingSystem;
+        private ShapeSpawner _shapeSpawner;
 
         public BootstrapEntryPoint(
-            ProjectileSpawner projectileSpawner, 
+            ProjectileSpawner projectileSpawner,
+            ShapeSpawner shapeSpawner,
             IInputHandler inputHandler,
             BettingState bettingState,
             PaymentState paymentState)
         {
+            _shapeSpawner = shapeSpawner;
             _paymentState = paymentState;
             _bettingState = bettingState;
             _projectileSpawner = projectileSpawner;
@@ -28,6 +31,7 @@ namespace Core
 
             _inputHandler.Initialize();
             _projectileSpawner.Initialize(_inputHandler);
+            _shapeSpawner.Spawn();
         }
 
         private void CreateGameStateMachine()

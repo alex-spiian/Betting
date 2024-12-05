@@ -12,6 +12,7 @@ namespace Core
         [SerializeField] private MainScreen _mainScreen;
         [SerializeField] private PaymentScreen _paymentScreen;
         [SerializeField] private PlayerInitialConfig _playerInitialConfig;
+        [SerializeField] private ShapeSpawner _shapeSpawner;
         
         public override void InstallBindings()
         {
@@ -21,6 +22,7 @@ namespace Core
             Container.Bind<MainScreen>().FromInstance(_mainScreen);
             Container.Bind<PaymentScreen>().FromInstance(_paymentScreen);
             Container.Bind<PlayerInitialConfig>().FromInstance(_playerInitialConfig);
+            Container.Bind<ShapeSpawner>().FromInstance(_shapeSpawner);
 
             Container.Bind<PlayerModel>().AsSingle();
             Container.BindInterfacesAndSelfTo<BootstrapEntryPoint>().AsSingle();
