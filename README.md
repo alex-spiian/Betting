@@ -1,5 +1,11 @@
 # Betting Game
 
+## Demo
+
+<a href="https://youtube.com/shorts/v0RLttZTbvA?feature=share">
+  <img src="https://img.youtube.com/vi/v0RLttZTbvA/0.jpg" alt="Watch demo on YouTube" width="500" />
+</a>
+
 ## Description
 
 This is a mobile game project created using Unity. The game features betting, a UI for input and displaying balance and winnings, as well as animations and user interactions.
@@ -11,30 +17,30 @@ The target platform for this project is **iOS**. The game is tested to run on iP
 ## Tech Stack
 
 ### 1. **Unity**
-   - The primary game development platform used for this project.
+- The primary game development platform used for this project.
 
 ### 2. **Zenject**
-   - A Dependency Injection library used to manage object dependencies, simplifying the creation and configuration of objects and their interactions.
+- A Dependency Injection library used to manage object dependencies, simplifying the creation and configuration of objects and their interactions.
 
 ### 3. **UniTask**
-   - Used for asynchronous tasks instead of Unity's standard coroutines, providing more efficient handling of asynchronous operations and better performance.
+- Used for asynchronous tasks instead of Unity's standard coroutines, providing more efficient handling of asynchronous operations and better performance.
 
 ### 4. **DOTween**
-   - A library for animations, used to create smooth transitions, state changes, and UI element animations (e.g., displaying winnings).
+- A library for animations, used to create smooth transitions, state changes, and UI element animations (e.g., displaying winnings).
 
 ### 5. **VitalRouter (Message Bus)**
-   - An event/message bus system used to simplify communication between different parts of the game, helping to decouple logic and make the project easier to maintain.
+- An event/message bus system used to simplify communication between different parts of the game, helping to decouple logic and make the project easier to maintain.
 
 ## Applied Design Patterns
 
 ### 1. **Entry Point**
-   - A design pattern used to provide a clear entry point into the application, enabling easier management of initialization and game start states.
+- A design pattern used to provide a clear entry point into the application, enabling easier management of initialization and game start states.
 
 ### 2. **Object Pool**
-   - A pattern used for reusing objects (e.g., UI elements like reward labels), improving performance and reducing unnecessary memory allocations.
+- A pattern used for reusing objects (e.g., UI elements like reward labels), improving performance and reducing unnecessary memory allocations.
 
 ### 3. **State Machine**
-   - Used to manage different game states, such as betting, winnings, and UI states. This pattern helps to simplify the application's logic, making it more readable and flexible.
+- Used to manage different game states, such as betting, winnings, and UI states. This pattern helps to simplify the application's logic, making it more readable and flexible.
 
 ## Flexibility of Modules
 
