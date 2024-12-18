@@ -2,9 +2,7 @@
 
 ## Demo
 
-<a href="https://youtube.com/shorts/v0RLttZTbvA?feature=share">
-  <img src="https://img.youtube.com/vi/v0RLttZTbvA/0.jpg" alt="Watch demo on YouTube" width="500" />
-</a>
+[![Watch the demo](https://img.youtube.com/vi/v0RLttZTbvA/0.jpg)](https://www.youtube.com/embed/v0RLttZTbvA)
 
 ## Description
 
